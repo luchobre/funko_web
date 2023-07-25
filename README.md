@@ -14,5 +14,4 @@ Este es un proyecto como parte del challenge integrador para el curso de NodeJS 
 - JavaScript 
 
 
-__Autor/a:__ Pepe Grillo
 # funko_web
