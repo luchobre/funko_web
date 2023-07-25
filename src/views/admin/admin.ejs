@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head') %>
+</head>
+<body class="grid-fixed">
+<%- include('header') %>
+    <main id="admin" class="container">
+        <section class="admin__search">
+            <iconify-icon class="admin__icon" icon="charm:search"></iconify-icon>
+            <input class="admin__search-bar" type="text" name="search" id="search" placeholder="código, nombre o categoria">
+        </section>
+        <section class="admin__list">
+            <div class="admin__header">
+                <h2>LISTADO DE PRODUCTOS</h2>
+                <span>AGREGAR<a href="./create"><iconify-icon icon="bxs:plus-square" style="color: #f33;"></iconify-icon></a></span>
+            </div>
+            <table class="admin-table">
+                <tr class="admin-table__header">
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Nombre del Producto</th>
+                    <th>Categoría</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+                <% data.forEach(item => { %>
+                <tr class="admin-table__row">
+                    <td><%= item.product_id %></td>
+                    <td><%= item.sku %></td>
+                    <td><%= item.product_name %></td>
+                    <td><%= item.category_name %></td>
+                    <td>
+                        <a href="/admin/edit/<%= item.product_id %>"><iconify-icon icon="mdi:pencil" style="color: #1d84b5;"></iconify-icon></a>
+                    </td>
+                    <td>
+                        <a href="/admin/delete/<%= item.product_id %>"><iconify-icon icon="heroicons-solid:trash" style="color: #f33;"></iconify-icon></a>
+                    </td>
+                    
+                </tr>
+                <% }) %>
+            </table>
+        </section>
+    </main>
+    <%- include('footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+</body>
+</html>
